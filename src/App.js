@@ -4,6 +4,8 @@ import Login from './components/Login/Login/Login';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Register from './components/Login/Register/Register';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
             <Route exact path="/register">
               <Register></Register>
             </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

@@ -1,0 +1,8 @@
+.banner{
+    background-image: url(../../../images/banner.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.front-bg-profile{
+    background-color:rgba(255, 248, 220, 0.87);
+}

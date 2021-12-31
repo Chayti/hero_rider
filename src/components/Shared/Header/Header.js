@@ -23,8 +23,8 @@ const Header = () => {
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link as={Link} to="/home" ><img className="logo" src={logo} alt="" /></Nav.Link>
             <Nav.Link as={Link} to="/home" className="title">Hero Rider</Nav.Link>
-            <Nav.Link as={Link} to="/home" className="link">HOME</Nav.Link>
-            <Nav.Link as={Link} to="/products" className="link">EXPLORE</Nav.Link>
+            <Nav.Link as={Link} to="/home" className="link">Home</Nav.Link>
+            <Nav.Link as={Link} to="/lessons" className="link">Driving Lessons</Nav.Link>
             {
               user.email ?
                 <span className="mx-4 px-1 my-0 text-light">Hello, {user.displayName}</span>
@@ -32,18 +32,13 @@ const Header = () => {
             }
             {
               user.email ?
-                <img width="30" style={{ borderRadius: "50%", border: "1px solid wheat", color: "white" }} src={user.photoURL} alt="user" />
-                : <p></p>
-            }
-            {
-              user.email ?
-                <Nav.Link as={Link} to="/dashboard"><button className="px-4 btn border-0 m-0">My Dashboard</button></Nav.Link>
+                <Nav.Link as={Link} to="/dashboard"><button className="px-4 btn border-0 m-0">Dashboard</button></Nav.Link>
                 : <p></p>
 
             }
             {
               user.email
-                ? <button onClick={logout} className="btn border-0 ms-2"><FontAwesomeIcon icon={faSignOutAlt} size="1x" />&nbsp;Log out</button>
+                ? <button onClick={logout} className="btn btn-warninggit  border-0 ms-2"><FontAwesomeIcon icon={faSignOutAlt} size="1x" />&nbsp;Log out</button>
                 : <Nav.Link as={Link} to="/login" activeStyle={style} className="link"><button className="btn btn-warning m-0"><FontAwesomeIcon icon={faSignInAlt} size="1x" />&nbsp;Login</button></Nav.Link>
             }
           </Navbar.Collapse>
