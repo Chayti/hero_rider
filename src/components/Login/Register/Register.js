@@ -1,4 +1,4 @@
-import { Typography, TextField, Button, CircularProgress, Alert, RadioGroup, FormControl, FormControlLabel, FormLabel, Radio, Input } from '@mui/material';
+import { Typography, TextField, Button, CircularProgress, Alert, RadioGroup, FormControl, FormControlLabel, FormLabel, Radio } from '@mui/material';
 import React, { useState } from 'react';
 import './Register.css';
 import { Grid } from '@mui/material';
@@ -16,11 +16,21 @@ const Register = () => {
     const handleRider = e => {
         setRider(true)
         setLearner(false)
+        const field = "role";
+        const value = "rider";
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
     }
 
     const handleLearner = e => {
         setLearner(true)
         setRider(false)
+        const field = "role";
+        const value = "learner";
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
     }
 
     const handleOnBlur = e => {
@@ -36,23 +46,17 @@ const Register = () => {
             alert('Your password did not match');
             return
         }
-
-        const field = "role";
-        const value = rider ? "rider" : "reader";
-        const newLoginData = { ...loginData };
-        newLoginData[field] = value;
-        setLoginData(newLoginData);
-
         registerUser(loginData.email, loginData.password, loginData.name, loginData.age, loginData.address, loginData.phone, loginData.vehicle, loginData.profile, loginData.nid, loginData.vehicle_name_palate, loginData.vehicle_model, loginData.vehicle_name, loginData.area, loginData.licence, loginData.role, history);
         e.preventDefault();
     }
+    console.log(loginData)
     return (
         <Box>
             <Grid container className="register-box" spacing={2}>
                 <Grid item className="front-bg-login-page my-5" sx={{ width: '50%' }}>
                     <Typography variant="h4" gutterBottom>Sign Up to Join With Us</Typography>
                     {!isLoading && <form onSubmit={handleLoginSubmit}>
-                        <FormControl component="fieldset">
+                        <FormControl component="fieldset" required>
                             <FormLabel component="legend">Join As</FormLabel>
                             <RadioGroup row aria-label="gender" name="row-radio-buttons-group">
                                 <FormControlLabel value="rider" control={<Radio onClick={handleRider} />} label="Rider" />

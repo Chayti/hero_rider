@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -25,6 +25,14 @@ function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
     const { user, logout, admin } = useAuth();
+    const [loggedin_user, setLoggedinUser] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setLoggedinUser(data));
+    }, []);
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -38,7 +46,7 @@ function Dashboard(props) {
             <Link to="/lessons"><Button style={{ color: "#89a077" }}>Driving Lessons</Button></Link>
             <br />
             {
-                !admin && <Box>
+                !admin && loggedin_user.role == 'learner' && <Box>
                     <Link to={`${url}/payment`}><Button style={{ color: "#89a077" }}>Payment</Button></Link>
                     <br />
                 </Box>
