@@ -19,6 +19,7 @@ import Payment from '../Payment/Payment';
 import useUsers from '../../../hooks/useUsers';
 import AddLesson from '../AddLesson/AddLesson';
 import Lessons from '../Lessons/lessons';
+import Users from '../Users/Users';
 
 const drawerWidth = 200;
 
@@ -44,6 +45,11 @@ function Dashboard(props) {
             {
                 loggedin_user.role == 'admin' && <Box>
                     <Link to={`${url}/addLesson`}><Button style={{ color: "#89a077" }}>Add A Lesson</Button></Link>
+                </Box>
+            }
+            {
+                loggedin_user.role == 'admin' && <Box>
+                    <Link to={`${url}/allUsers`}><Button style={{ color: "#89a077" }}>All Users</Button></Link>
                 </Box>
             }
             <br />
@@ -125,6 +131,9 @@ function Dashboard(props) {
                     </Route>
                     <Route exact path={`${path}/lessons`}>
                         <Lessons></Lessons>
+                    </Route>
+                    <Route exact path={`${path}/allUsers`}>
+                        <Users></Users>
                     </Route>
                     <Route exact path={`${path}/payment/:lessonId`}>
                         <Payment></Payment>

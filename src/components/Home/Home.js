@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <>
             <Header></Header>
-            <h2>Home</h2>
+            <h2 className="my-5 py-5"> This is Home</h2>
             <Footer></Footer>
         </>
     )
