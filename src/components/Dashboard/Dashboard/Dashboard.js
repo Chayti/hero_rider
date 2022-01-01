@@ -15,9 +15,9 @@ import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { Button } from '@mui/material';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import useAuth from './../../../hooks/useAuth';
-import AdminRoute from './../../Login/AdminRoute/AdminRoute';
 import Payment from '../Payment/Payment';
 import useUsers from '../../../hooks/useUsers';
+import AddLesson from '../AddLesson/AddLesson';
 
 const drawerWidth = 200;
 
@@ -25,7 +25,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { user, logout, admin } = useAuth();
+    const { user, logout } = useAuth();
     const { loggedin_user } = useUsers();
 
     const handleDrawerToggle = () => {
@@ -37,23 +37,22 @@ function Dashboard(props) {
             <Toolbar />
             <Divider />
             <Link to="/home"><Button style={{ color: "#89a077" }}>Home</Button></Link>
-            <br />
             {
-                !admin && loggedin_user.role == 'learner' && <Link to={`${url}/lessons`}><Button style={{ color: "#89a077" }}>Driving Lessons</Button></Link>
+                loggedin_user.role == 'learner' && <Link to={`${url}/lessons`}><Button style={{ color: "#89a077" }}>Driving Lessons</Button></Link>
             }
-            <br />
             {
-                !admin && loggedin_user.role == 'learner' && <Box>
+                loggedin_user.role == 'learner' && <Box>
                     <Link to={`${url}/payment`}><Button style={{ color: "#89a077" }}>Payment</Button></Link>
                     <br />
                 </Box>
             }
 
             {
-                admin && <Box>
-
+                loggedin_user.role == 'admin' && <Box>
+                    <Link to={`${url}/addLesson`}><Button style={{ color: "#89a077" }}>Add A Lesson</Button></Link>
                 </Box>
             }
+            <br />
             {
                 user.email
                     ? <button onClick={logout} className="btn btn-primary border-0 ms-2"><FontAwesomeIcon icon={faSignOutAlt} size="1x" />&nbsp;Log out</button>
@@ -135,6 +134,9 @@ function Dashboard(props) {
                     </Route>
                     <Route exact path={`${path}/payment`}>
                         <Payment></Payment>
+                    </Route>
+                    <Route path={`${path}/addLesson`}>
+                        <AddLesson></AddLesson>
                     </Route>
                 </Switch>
 
