@@ -38,7 +38,9 @@ function Dashboard(props) {
             <Divider />
             <Link to="/home"><Button style={{ color: "#89a077" }}>Home</Button></Link>
             <br />
-            <Link to="/lessons"><Button style={{ color: "#89a077" }}>Driving Lessons</Button></Link>
+            {
+                !admin && loggedin_user.role == 'learner' && <Link to={`${url}/lessons`}><Button style={{ color: "#89a077" }}>Driving Lessons</Button></Link>
+            }
             <br />
             {
                 !admin && loggedin_user.role == 'learner' && <Box>
@@ -54,7 +56,7 @@ function Dashboard(props) {
             }
             {
                 user.email
-                    ? <button onClick={logout} className="btn border-0 ms-2"><FontAwesomeIcon icon={faSignOutAlt} size="1x" />&nbsp;Log out</button>
+                    ? <button onClick={logout} className="btn btn-primary border-0 ms-2"><FontAwesomeIcon icon={faSignOutAlt} size="1x" />&nbsp;Log out</button>
                     : <p></p>
             }
         </div >
@@ -127,6 +129,9 @@ function Dashboard(props) {
                 <Switch>
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
+                    </Route>
+                    <Route exact path={`${path}/lessons`}>
+                        <Payment></Payment>
                     </Route>
                     <Route exact path={`${path}/payment`}>
                         <Payment></Payment>
