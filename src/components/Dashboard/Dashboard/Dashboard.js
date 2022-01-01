@@ -18,6 +18,7 @@ import useAuth from './../../../hooks/useAuth';
 import Payment from '../Payment/Payment';
 import useUsers from '../../../hooks/useUsers';
 import AddLesson from '../AddLesson/AddLesson';
+import Lessons from '../Lessons/lessons';
 
 const drawerWidth = 200;
 
@@ -130,7 +131,7 @@ function Dashboard(props) {
                         <DashboardHome></DashboardHome>
                     </Route>
                     <Route exact path={`${path}/lessons`}>
-                        <Payment></Payment>
+                        <Lessons></Lessons>
                     </Route>
                     <Route exact path={`${path}/payment`}>
                         <Payment></Payment>

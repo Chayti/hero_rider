@@ -3,8 +3,8 @@
     border: 2px solid #4a6e2e;
 }
 .lesson img{
-    height: 30%;
-    width: 50%;
+    height: 60%;
+    width: 70%;
 }
 .lesson p{
     display: -webkit-box;
@@ -12,15 +12,4 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-.lesson .delete-btn{
-    background-color: white;
-    border:2px solid red;
-    color:red;
-}
-.lesson .delete-btn:hover{
-    transform: none;
-    background-color: red;
-    color:white;
 }
