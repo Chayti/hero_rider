@@ -66,7 +66,7 @@ const Users = () => {
                                 <TableCell align="right">{row.email}</TableCell>
                                 <TableCell align="right">{row.phone}</TableCell>
                                 <TableCell align="right">{row.age}</TableCell>
-                                <TableCell align="right">{row.phone}</TableCell>
+                                <TableCell align="right"></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
