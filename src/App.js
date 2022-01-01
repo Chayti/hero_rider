@@ -6,6 +6,7 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Register from './components/Login/Register/Register';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>
