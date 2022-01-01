@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import useAuth from "../../../hooks/useAuth";
+import React from 'react';
+import useUsers from '../../../hooks/useUsers';
 import './DashboardHome.css';
 
 const DashboardHome = () => {
-    const { user } = useAuth();
-    const [loggedin_user, setLoggedinUser] = useState([]);
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setLoggedinUser(data));
-    }, []);
+    const { loggedin_user } = useUsers();
 
     return (
         <div className="banner">

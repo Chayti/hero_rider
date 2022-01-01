@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,6 +17,7 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 import useAuth from './../../../hooks/useAuth';
 import AdminRoute from './../../Login/AdminRoute/AdminRoute';
 import Payment from '../Payment/Payment';
+import useUsers from '../../../hooks/useUsers';
 
 const drawerWidth = 200;
 
@@ -25,13 +26,7 @@ function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
     const { user, logout, admin } = useAuth();
-    const [loggedin_user, setLoggedinUser] = useState([]);
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setLoggedinUser(data));
-    }, []);
+    const { loggedin_user } = useUsers();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
