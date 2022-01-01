@@ -64,7 +64,6 @@ const Register = () => {
                             </RadioGroup>
                         </FormControl>
                         <br />
-                        {learner && <p>I am learner</p>}
                         <TextField
                             sx={{ width: '75%', m: 1 }}
                             id="standard-basic"

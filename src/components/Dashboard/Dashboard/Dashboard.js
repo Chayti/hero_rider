@@ -42,13 +42,6 @@ function Dashboard(props) {
                 loggedin_user.role == 'learner' && <Link to={`${url}/lessons`}><Button style={{ color: "#89a077" }}>Driving Lessons</Button></Link>
             }
             {
-                loggedin_user.role == 'learner' && <Box>
-                    <Link to={`${url}/payment`}><Button style={{ color: "#89a077" }}>Payment</Button></Link>
-                    <br />
-                </Box>
-            }
-
-            {
                 loggedin_user.role == 'admin' && <Box>
                     <Link to={`${url}/addLesson`}><Button style={{ color: "#89a077" }}>Add A Lesson</Button></Link>
                 </Box>
@@ -133,7 +126,7 @@ function Dashboard(props) {
                     <Route exact path={`${path}/lessons`}>
                         <Lessons></Lessons>
                     </Route>
-                    <Route exact path={`${path}/payment`}>
+                    <Route exact path={`${path}/payment/:lessonId`}>
                         <Payment></Payment>
                     </Route>
                     <Route path={`${path}/addLesson`}>

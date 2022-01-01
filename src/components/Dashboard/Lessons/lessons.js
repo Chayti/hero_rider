@@ -12,9 +12,6 @@ const Lessons = () => {
             .then((data) => setMyLessons(data));
     }, [myLessons]);
 
-    const handlePayment = (id) => {
-
-    }
     return (
         <div id="lessons">
             <h1>Available Driving Lessons</h1>
@@ -24,7 +21,6 @@ const Lessons = () => {
                         myLessons.map(myLesson => <Lesson
                             key={myLesson.id}
                             myLesson={myLesson}
-                            handleDelete={handlePayment}
                         ></Lesson>)
                     }
                 </Row>

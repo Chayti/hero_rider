@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './lesson.css';
 
 const Lesson = (props) => {
@@ -9,7 +10,11 @@ const Lesson = (props) => {
             <h3 className="px-3">{name}</h3>
             <br />
             <h4 className="px-3 text-primary fw-bold">${price}</h4>
-            <button className="btn btn-success mx-3 mt-0 " onClick={() => props.handlePayment(_id)}>Pay Now</button>
+
+            <Link to={`/dashboard/payment/${_id}`}>
+                <button className="btn btn-warning mx-3 mt-0 ">Pay Now</button>
+            </Link>
+
         </div>
     );
 }
