@@ -11,7 +11,7 @@ const AddLesson = () => {
     const onSubmit = (data) => {
         data.email = user?.email;
         console.log(data);
-        axios.post('http://localhost:5000/addLesson', data)
+        axios.post('https://frozen-river-39826.herokuapp.com/addLesson', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('added successfully')

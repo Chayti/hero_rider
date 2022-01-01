@@ -13,7 +13,7 @@ const Users = () => {
     const [allUser, setAllUser] = useState([])
     const [anotherContainer, setAnotherContainer] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/users`
+        const url = `https://frozen-river-39826.herokuapp.com/users`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -33,7 +33,7 @@ const Users = () => {
 
     return (
         <div>
-            <h2>Total Registered User: {allUser.length}</h2>
+            <h2>Total Registered User: {anotherContainer.length}</h2>
 
             <h6 className="mt-4 fw-bold text-success">Search by email, phone, full names of users...</h6>
             <div className="login-form front-bg">

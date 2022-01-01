@@ -16,7 +16,7 @@ const CheckoutForm = ({ lesson }) => {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://frozen-river-39826.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -85,7 +85,7 @@ const CheckoutForm = ({ lesson }) => {
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
 
-            const url = `http://localhost:5000/lessons/${_id}`;
+            const url = `https://frozen-river-39826.herokuapp.com/lessons/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -97,7 +97,7 @@ const CheckoutForm = ({ lesson }) => {
                 .then(data => console.log(data));
 
 
-            // axios.post('http://localhost:5000/booking', payment)
+            // axios.post('https://frozen-river-39826.herokuapp.com/booking', payment)
             //     .then(res => { })
 
         }

@@ -7,7 +7,7 @@ import './lessons.css';
 const Lessons = () => {
     const [myLessons, setMyLessons] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/lessons')
+        fetch('https://frozen-river-39826.herokuapp.com/lessons')
             .then((res) => res.json())
             .then((data) => setMyLessons(data));
     }, [myLessons]);

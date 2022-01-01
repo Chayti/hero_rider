@@ -6,7 +6,7 @@ const useUsers = () => {
     const [loggedin_user, setLoggedinUser] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://frozen-river-39826.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setLoggedinUser(data));
     }, []);

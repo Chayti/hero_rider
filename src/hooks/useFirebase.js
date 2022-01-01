@@ -79,7 +79,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, age, address, phone, vehicle, profile, nid, vehicle_name_palate, vehicle_model, vehicle_name, area, licence, role, method) => {
         const user = { email, displayName, age, address, phone, vehicle, nid, profile, vehicle_name_palate, vehicle_model, vehicle_name, area, licence, role };
-        fetch('http://localhost:5000/users', {
+        fetch('https://frozen-river-39826.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

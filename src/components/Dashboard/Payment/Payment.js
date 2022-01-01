@@ -10,7 +10,7 @@ const Payment = () => {
     const { lessonId } = useParams();
     const [lesson, setLesson] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/lessons/${lessonId}`)
+        fetch(`https://frozen-river-39826.herokuapp.com/lessons/${lessonId}`)
             .then(res => res.json())
             .then(data => setLesson(data));
     }, [lessonId]);
